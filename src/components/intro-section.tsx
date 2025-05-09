@@ -32,7 +32,7 @@ export function IntroSection() {
           Welcome to <span className="text-primary">BioNet</span>
         </h1>
         <p className="text-lg md:text-xl mb-8 drop-shadow-md">
-          Pioneering sustainable solutions by connecting agriculture, industry, and investment for a greener tomorrow.
+          Enabling energy transformation by providing locally sourced irish biogas to industry for a greener tomorrow.
         </p>
         <div className="mb-10 space-y-3 text-left max-w-md mx-auto bg-black/30 backdrop-blur-sm p-6 rounded-lg shadow-xl">
           {bulletPoints.map((item, index) => (
@@ -45,11 +45,6 @@ export function IntroSection() {
         <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl transform transition-transform hover:scale-105">
           <Link href="#roles">Discover Your Role</Link>
         </Button>
-      </div>
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
-        <Link href="#roles" aria-label="Scroll to next section">
-          <ArrowDownCircle className="h-10 w-10 text-white/70 hover:text-white animate-bounce transition-colors" />
-        </Link>
       </div>
     </section>
   );

@@ -65,7 +65,7 @@ const roles: Role[] = [
 
 export function RoleSelectionSection() {
   return (
-    <section id="roles" className="py-16 md:py-24 bg-background">
+    <section id="roles" className="py-16 md:py-24 bg-background mb-16 md:mb-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -77,7 +77,7 @@ export function RoleSelectionSection() {
         </div>
 
         <Tabs defaultValue={roles[0].value} className="w-full max-w-3xl mx-auto">
-          <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-8 shadow-md">
+          <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-8 shadow-md pb-4 md:pb-8">
             {roles.map((role) => (
               <TabsTrigger 
                 key={role.value} 
@@ -99,12 +99,18 @@ export function RoleSelectionSection() {
                       <role.icon className="w-12 h-12 text-primary" />
                     </div>
                     <div>
-                      <CardTitle className="text-2xl md:text-3xl font-semibold text-foreground mb-1">{role.title}</CardTitle>
+                      <CardTitle className="text-2xl md:text-3xl font-semibold text-foreground mb-2">{role.title}</CardTitle>
                       <CardDescription className="text-base text-muted-foreground">{role.description}</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent className="p-6">
+                <div className="p-5 bg-secondary/20 rounded-lg border border-secondary/50 mb-5">
+                    <h5 className="text-lg font-semibold text-secondary-foreground mb-2">Custom Tools & Insights</h5>
+                    <p className="text-sm text-muted-foreground italic">
+                      (Placeholder for role-specific calculators and detailed target-group information. This section will be tailored with data-driven tools and resources.)
+                    </p>
+                  </div>
                   <h4 className="text-xl font-semibold text-foreground mb-4">Key Features & Benefits:</h4>
                   <ul className="space-y-3 text-card-foreground/90 mb-6">
                     {role.features.map((feature, index) => (
@@ -116,12 +122,6 @@ export function RoleSelectionSection() {
                       </li>
                     ))}
                   </ul>
-                  <div className="p-4 bg-secondary/20 rounded-lg border border-secondary/50">
-                    <h5 className="text-lg font-semibold text-secondary-foreground mb-2">Custom Tools & Insights</h5>
-                    <p className="text-sm text-muted-foreground italic">
-                      (Placeholder for role-specific calculators and detailed target-group information. This section will be tailored with data-driven tools and resources.)
-                    </p>
-                  </div>
                 </CardContent>
                 <CardFooter className="p-6 bg-muted/20">
                   <Button asChild size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transform transition-transform hover:scale-105">
