@@ -19,11 +19,11 @@
     --secondary: 88 50% 60%; /* Light green */
     --secondary-foreground: 88 50% 10%; /* Dark color for text on secondary */
 
-    --muted: 16 19% 40%; /* Muted brown */
-    --muted-foreground: 16 19% 90%; /* Light color for text on muted */
+    --muted: 16 19% 85%; /* Lighter Muted brown for backgrounds */
+    --muted-foreground: 20 10% 45%; /* Darker Gray for text on muted or for subtitles */
 
-    --accent: 34 100% 36%; /* Muted Gold (#B8860B) */
-    --accent-foreground: 0 0% 98%; /* Almost white for text on accent */
+    --accent: 40 80% 45%; /* Muted Gold (#B8860B approximated with HSL: was 34 100% 36%) */
+    --accent-foreground: 40 50% 98%; /* Almost white for text on accent (was 0 0% 98%) */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -36,8 +36,8 @@
 
     --chart-1: 120 39% 49%; /* Primary */
     --chart-2: 88 50% 60%;  /* Secondary */
-    --chart-3: 34 100% 36%; /* Accent (Muted Gold) */
-    --chart-4: 16 19% 40%;   /* Muted */
+    --chart-3: 40 80% 45%; /* Accent (Muted Gold) */
+    --chart-4: 20 10% 45%;   /* Muted Foreground (Dark Gray) */
     --chart-5: 120 30% 70%; /* Lighter primary */
     
     --sidebar-background: 0 0% 98%;
@@ -66,11 +66,11 @@
     --secondary: 88 50% 50%; /* Slightly darker Light green for dark mode */
     --secondary-foreground: 88 50% 95%;
 
-    --muted: 16 19% 50%; /* Slightly lighter Muted brown for dark mode */
-    --muted-foreground: 16 19% 15%;
+    --muted: 16 19% 20%; /* Darker Muted brown for backgrounds in dark mode */
+    --muted-foreground: 20 10% 65%; /* Lighter Gray for text on muted or for subtitles */
 
-    --accent: 34 100% 45%; /* Slightly lighter Muted Gold for dark mode */
-    --accent-foreground: 0 0% 98%; /* Almost white for text on accent */
+    --accent: 40 70% 55%; /* Slightly lighter Muted Gold for dark mode */
+    --accent-foreground: 40 50% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -81,8 +81,8 @@
     
     --chart-1: 120 39% 55%;
     --chart-2: 88 50% 50%;
-    --chart-3: 34 100% 45%;
-    --chart-4: 16 19% 50%;
+    --chart-3: 40 70% 55%;
+    --chart-4: 20 10% 65%;
     --chart-5: 120 30% 30%;
     
     --sidebar-background: 240 5.9% 10%;

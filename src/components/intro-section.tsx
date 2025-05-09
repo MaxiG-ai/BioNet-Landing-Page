@@ -17,15 +17,15 @@ export function IntroSection() {
   return (
     <section id="intro" className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden pt-20"> {/* Added pt-20 for navbar */}
       <Image
-        src="https://picsum.photos/1920/1080"
-        alt="Lush green field background"
+        src="https://picsum.photos/1920/1080?random=10" // Updated random seed for potentially new image
+        alt="Irish landscape with a cattle farm"
         fill={true}
         priority={true}
         sizes="100vw"
         style={{objectFit: "cover"}}
         quality={80}
         className="z-0 brightness-50"
-        data-ai-hint="green field nature"
+        data-ai-hint="irish landscape cattle farm" // Updated AI hint
       />
       <div className="relative z-10 p-4 md:p-8 max-w-3xl mx-auto">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">

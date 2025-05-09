@@ -1,20 +1,21 @@
 "use client";
 
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Dot } from 'recharts';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import type { TooltipProps } from 'recharts';
 import type { NameType, ValueType } from 'recharts/types/component/DefaultTooltipContent';
+import React from 'react';
 
 const timelineData = [
-  { year: '2022', value: 10, image: 'https://picsum.photos/150/100?random=1', description: 'Launched BioNet platform, onboarded first 50 farmers.', aiHint: "startup launch team" },
-  { year: '2023', value: 30, image: 'https://picsum.photos/150/100?random=2', description: 'Expanded to 3 regions, partnered with 5 industrial clients.', aiHint: "business expansion map" },
-  { year: '2024', value: 60, image: 'https://picsum.photos/150/100?random=3', description: 'Secured Series A funding, initiated international pilot programs.', aiHint: "funding investment handshake" },
-  { year: '2025', value: 85, image: 'https://picsum.photos/150/100?random=4', description: 'Projected to achieve carbon neutrality for partnered farms.', aiHint: "carbon neutral certificate" },
-  { year: 'Future', value: 100, image: 'https://picsum.photos/150/100?random=5', description: 'Aiming for global leadership in bioeconomy solutions.', aiHint: "global network future" },
-];
+  { year: '2022', value: 1, image: 'https://picsum.photos/150/100?random=1', description: 'Launched BioNet platform, onboarded first 50 farmers.', aiHint: "startup launch team" },
+  { year: '2023', value: 1, image: 'https://picsum.photos/150/100?random=2', description: 'Expanded to 3 regions, partnered with 5 industrial clients.', aiHint: "business expansion map" },
+  { year: '2024', value: 1, image: 'https://picsum.photos/150/100?random=3', description: 'Secured Series A funding, initiated international pilot programs.', aiHint: "funding investment handshake" },
+  { year: '2025', value: 1, image: 'https://picsum.photos/150/100?random=4', description: 'Projected to achieve carbon neutrality for partnered farms.', aiHint: "carbon neutral certificate" },
+  { year: 'Future', value: 1, image: 'https://picsum.photos/150/100?random=5', description: 'Aiming for global leadership in bioeconomy solutions.', aiHint: "global network future" },
+]; // value is set to 1 for consistent Y positioning
 
-const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
+const CustomTooltip = ({ active, payload }: TooltipProps<ValueType, NameType>) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     return (
@@ -33,13 +34,27 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameT
               data-ai-hint={data.aiHint} />
           </div>
           <p className="text-sm text-muted-foreground">{data.description}</p>
-          <p className="text-sm font-semibold text-primary mt-1">Impact Score: {data.value}</p>
+          {/* Impact score can be added here if it's part of data */}
         </CardContent>
       </Card>
     );
   }
   return null;
 };
+
+// Custom Dot for the LineChart
+const CustomDot = (props: any) => {
+  const { cx, cy, stroke, payload } = props;
+  // Conditionally style the "Future" dot or others
+  const isFuture = payload.year === 'Future';
+  return (
+    <svg x={cx - 10} y={cy - 10} width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="10" fill={isFuture ? "hsl(var(--accent))" : "hsl(var(--primary))"} stroke="hsl(var(--background))" strokeWidth="2"/>
+      {isFuture && <path d="M12 6v6l4 2" stroke="hsl(var(--accent-foreground))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>}
+    </svg>
+  );
+};
+
 
 export function TimelineSection() {
   return (
@@ -48,35 +63,38 @@ export function TimelineSection() {
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Journey & Future Vision</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tracking our progress and milestones as we build a sustainable future. Hover over bars for details.
+            Tracking our progress and milestones as we build a sustainable future. Hover over milestones for details.
           </p>
         </div>
         <Card className="shadow-lg bg-card">
           <CardHeader>
-            <CardTitle className="text-card-foreground">BioNet Growth Trajectory</CardTitle>
-            <CardDescription className="text-muted-foreground">Illustrating key milestones and impact over time.</CardDescription>
+            <CardTitle className="text-card-foreground">BioNet Growth Milestones</CardTitle>
+            <CardDescription className="text-muted-foreground">Key achievements and future outlook.</CardDescription>
           </CardHeader>
-          <CardContent className="h-[400px] md:h-[500px] p-2 md:p-6">
+          <CardContent className="h-[300px] md:h-[400px] p-2 md:p-6">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={timelineData} margin={{ top: 5, right: 20, left: -20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <LineChart data={timelineData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" vertical={false} />
                 <XAxis 
                   dataKey="year" 
                   stroke="hsl(var(--foreground))" 
                   tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }} 
                   axisLine={{ stroke: 'hsl(var(--border))' }}
                   tickLine={{ stroke: 'hsl(var(--border))' }}
+                  padding={{ left: 30, right: 30 }}
+                  interval={0} 
                 />
-                <YAxis 
-                  stroke="hsl(var(--foreground))" 
-                  tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
-                  label={{ value: 'Impact Score', angle: -90, position: 'insideLeft', fill: 'hsl(var(--foreground))', fontSize: 14, dy: 40, dx:10 }}
-                  axisLine={{ stroke: 'hsl(var(--border))' }}
-                  tickLine={{ stroke: 'hsl(var(--border))' }}
+                <YAxis hide={true} domain={[0, 2]} /> {/* Hidden Y-axis, domain ensures dots are centered */}
+                <Tooltip content={<CustomTooltip />} cursor={{ stroke: 'hsl(var(--accent))', strokeWidth: 2, strokeDasharray: '3 3' }} />
+                <Line 
+                  type="monotone" 
+                  dataKey="value" // All values are 1 to place dots on the same horizontal line
+                  stroke="hsl(var(--primary))" 
+                  strokeWidth={2}
+                  activeDot={{ r: 8, fill: 'hsl(var(--primary))', stroke: 'hsl(var(--background))', strokeWidth: 2 }}
+                  dot={<CustomDot />}
                 />
-                <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--accent)/0.1)' }} />
-                <Bar dataKey="value" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} barSize={50} />
-              </BarChart>
+              </LineChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>

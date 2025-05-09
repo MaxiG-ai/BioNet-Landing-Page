@@ -30,7 +30,7 @@ const roles: Role[] = [
       "Marketplace for sustainable produce.",
       "Guidance on regenerative agriculture practices."
     ],
-    ctaLink: "#contact", // Updated to a more generic section or could be role-specific anchor
+    ctaLink: "#contact", 
     ctaText: "Explore Farmer Solutions"
   },
   {
@@ -44,7 +44,7 @@ const roles: Role[] = [
       "Supply chain transparency tools.",
       "Support for circular economy models."
     ],
-    ctaLink: "#contact", // Updated
+    ctaLink: "#contact", 
     ctaText: "Discover Industry Innovations"
   },
   {
@@ -58,7 +58,7 @@ const roles: Role[] = [
       "Access to exclusive market research.",
       "Networking opportunities with innovators."
     ],
-    ctaLink: "#contact", // Updated
+    ctaLink: "#contact", 
     ctaText: "Find Investment Opportunities"
   }
 ];
@@ -79,9 +79,13 @@ export function RoleSelectionSection() {
         <Tabs defaultValue={roles[0].value} className="w-full max-w-3xl mx-auto">
           <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-8 shadow-md">
             {roles.map((role) => (
-              <TabsTrigger key={role.value} value={role.value} className="py-3 text-base data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg">
-                <role.icon className="w-5 h-5 mr-2" />
-                {role.title}
+              <TabsTrigger 
+                key={role.value} 
+                value={role.value} 
+                className="flex items-center justify-center py-3 text-base data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg"
+              >
+                <role.icon className="w-5 h-5 mr-2 flex-shrink-0" />
+                <span>{role.title}</span>
               </TabsTrigger>
             ))}
           </TabsList>
