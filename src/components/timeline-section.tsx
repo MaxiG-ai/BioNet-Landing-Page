@@ -69,7 +69,7 @@ export function TimelineSection() {
         <Card className="shadow-lg bg-card">
           <CardHeader>
             <CardTitle className="text-card-foreground">BioNet Growth Milestones</CardTitle>
-            <CardDescription className="text-muted-foreground">Key achievements and future outlook.</CardDescription>
+            <CardDescription className="text-muted-foreground">Timeline to create BioNet in Ireland.</CardDescription>
           </CardHeader>
           <CardContent className="h-[300px] md:h-[400px] p-2 md:p-6">
             <ResponsiveContainer width="100%" height="100%">

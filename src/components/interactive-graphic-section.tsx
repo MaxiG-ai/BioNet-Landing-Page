@@ -19,7 +19,7 @@ const flowSteps: FlowStep[] = [
   {
     id: 'cattle',
     icon: Beef,
-    title: 'Sustainable Cattle Farming',
+    title: 'Cattle Farming',
     explanation: 'Promoting responsible livestock management and utilization of agricultural residues as feedstock.',
     aiHint: "cattle farm sustainable"
   },
@@ -33,14 +33,14 @@ const flowSteps: FlowStep[] = [
   {
     id: 'biomethane-washing',
     icon: Filter, // Filter for purification/washing
-    title: 'Biomethane Upgrading',
+    title: 'Biomethane Washing',
     explanation: 'Purifying biogas by removing CO2 and other impurities to produce high-quality biomethane.',
     aiHint: "gas purification industrial"
   },
   {
     id: 'industry-use',
     icon: Factory,
-    title: 'Industrial Application',
+    title: 'Industrial Use',
     explanation: 'Utilizing biomethane as a renewable energy source for heat, power, or as a vehicle fuel, and digestate as biofertilizer.',
     aiHint: "modern factory renewable energy"
   },
@@ -70,7 +70,7 @@ export function InteractiveGraphicSection() {
         </div>
 
         <TooltipProvider>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
+          <div className="flex flex-col md:flex-row items-stretch justify-center gap-4 md:gap-0">
             {flowSteps.map((step, index) => (
               <React.Fragment key={step.id}>
                 <Tooltip delayDuration={100}>
@@ -90,7 +90,7 @@ export function InteractiveGraphicSection() {
                   </TooltipContent>
                 </Tooltip>
                 {index < flowSteps.length - 1 && (
-                  <div className="flex-shrink-0 mx-2 my-4 md:my-0">
+                  <div className="flex-shrink-0 mx-auto my-auto">
                     <ArrowRight className="w-8 h-8 text-primary md:rotate-0 rotate-90" />
                   </div>
                 )}

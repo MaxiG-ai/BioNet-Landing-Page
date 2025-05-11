@@ -71,66 +71,68 @@ export function RoleSelectionSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Tailored Solutions for Every Partner
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            BioNet offers specialized resources and tools designed to meet the unique needs of farmers, industry leaders, and investors in the bioeconomy. Select your role to learn more.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
+            BioNet offers specialized resources and tools designed to meet the unique needs of farmers, industry leaders, and investors in the bioeconomy.
+          </p>
+          <p className="text-lg text-foreground max-w-2xl mx-auto">
+            Select your role below to learn more.
           </p>
         </div>
 
         <Tabs defaultValue={roles[0].value} className="w-full max-w-3xl mx-auto">
-          <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-8 shadow-md pb-4 md:pb-8">
-            {roles.map((role) => (
-              <TabsTrigger 
-                key={role.value} 
-                value={role.value} 
-                className="flex items-center justify-center py-3 text-base data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg"
+          <TabsList className="flex justify-center md:grid md:grid-cols-3 w-full shadow mb-6">
+              {roles.map((role) => (
+                <TabsTrigger 
+                  key={role.value} 
+                  value={role.value} 
+                  className="flex-1 md:flex-auto flex items-center justify-center text-base data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg md:px-3 md:py-1.5"
               >
-                <role.icon className="w-5 h-5 mr-2 flex-shrink-0" />
-                <span>{role.title}</span>
+                <role.icon className="w-5 h-5 m-2 flex-shrink-0" />
+                <span className="hidden md:inline">{role.title}</span>
               </TabsTrigger>
             ))}
           </TabsList>
-
-          {roles.map((role) => (
-            <TabsContent key={role.value} value={role.value}>
-              <Card className="overflow-hidden shadow-xl transform transition-all duration-300 bg-card">
-                <CardHeader className="bg-muted/20 p-6">
-                  <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-                    <div className="p-4 bg-primary/10 rounded-full">
-                      <role.icon className="w-12 h-12 text-primary" />
+            {roles.map((role) => (
+              <TabsContent key={role.value} value={role.value} className="py-4">
+                <Card className="overflow-hidden shadow-xl transform transition-all duration-300 bg-card">
+                  <CardHeader className="bg-muted/20 p-6">
+                    <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                      <div className="p-4 bg-primary/10 rounded-full">
+                        <role.icon className="w-12 h-12 text-primary" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-2xl md:text-3xl font-semibold text-foreground mb-2">{role.title}</CardTitle>
+                        <CardDescription className="text-base text-muted-foreground">{role.description}</CardDescription>
+                      </div>
                     </div>
-                    <div>
-                      <CardTitle className="text-2xl md:text-3xl font-semibold text-foreground mb-2">{role.title}</CardTitle>
-                      <CardDescription className="text-base text-muted-foreground">{role.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                  <div className="p-5 bg-secondary/20 rounded-lg border border-secondary/50 mb-5">
+                      <h5 className="text-lg font-semibold text-secondary-foreground mb-2">Custom Tools & Insights</h5>
+                      <p className="text-sm text-muted-foreground italic">
+                        (Placeholder for role-specific calculators and detailed target-group information. This section will be tailored with data-driven tools and resources.)
+                      </p>
                     </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-6">
-                <div className="p-5 bg-secondary/20 rounded-lg border border-secondary/50 mb-5">
-                    <h5 className="text-lg font-semibold text-secondary-foreground mb-2">Custom Tools & Insights</h5>
-                    <p className="text-sm text-muted-foreground italic">
-                      (Placeholder for role-specific calculators and detailed target-group information. This section will be tailored with data-driven tools and resources.)
-                    </p>
-                  </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-4">Key Features & Benefits:</h4>
-                  <ul className="space-y-3 text-card-foreground/90 mb-6">
-                    {role.features.map((feature, index) => (
-                      <li key={index} className="flex items-start">
-                        <svg className="w-5 h-5 mr-3 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                        </svg>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter className="p-6 bg-muted/20">
-                  <Button asChild size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transform transition-transform hover:scale-105">
-                    <Link href={role.ctaLink}>{role.ctaText}</Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </TabsContent>
-          ))}
+                    <h4 className="text-xl font-semibold text-foreground mb-4">Key Features & Benefits:</h4>
+                    <ul className="space-y-3 text-card-foreground/90 mb-6">
+                      {role.features.map((feature, index) => (
+                        <li key={index} className="flex items-start">
+                          <svg className="w-5 h-5 mr-3 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                          </svg>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter className="p-6 bg-muted/20">
+                    <Button asChild size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transform transition-transform hover:scale-105">
+                      <Link href={role.ctaLink}>{role.ctaText}</Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </TabsContent>
+            ))}
         </Tabs>
       </div>
     </section>
