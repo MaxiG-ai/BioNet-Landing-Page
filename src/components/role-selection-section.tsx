@@ -7,6 +7,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import type { LucideIcon } from 'lucide-react';
+import { FarmerCalculator } from '@/components/calculators/farmer-calculator';
+import { IndustryCalculator } from '@/components/calculators/industry-calculator';
+import { InvestorDisplay } from '@/components/calculators/investor-display';
 
 interface Role {
   icon: LucideIcon;
@@ -30,7 +33,7 @@ const roles: Role[] = [
       "Marketplace for sustainable produce.",
       "Guidance on regenerative agriculture practices."
     ],
-    ctaLink: "#contact", 
+    ctaLink: "#contact",
     ctaText: "Explore Farmer Solutions"
   },
   {
@@ -44,7 +47,7 @@ const roles: Role[] = [
       "Supply chain transparency tools.",
       "Support for circular economy models."
     ],
-    ctaLink: "#contact", 
+    ctaLink: "#contact",
     ctaText: "Discover Industry Innovations"
   },
   {
@@ -58,7 +61,7 @@ const roles: Role[] = [
       "Access to exclusive market research.",
       "Networking opportunities with innovators."
     ],
-    ctaLink: "#contact", 
+    ctaLink: "#contact",
     ctaText: "Find Investment Opportunities"
   }
 ];
@@ -80,15 +83,15 @@ export function RoleSelectionSection() {
         </div>
 
         <Tabs defaultValue={roles[0].value} className="w-full max-w-3xl mx-auto">
-          <TabsList className="flex justify-center md:grid md:grid-cols-3 w-full shadow mb-6">
+          <TabsList className="grid grid-cols-3 w-full shadow mb-6 bg-muted/50 rounded-md">
               {roles.map((role) => (
-                <TabsTrigger 
-                  key={role.value} 
-                  value={role.value} 
-                  className="flex-1 md:flex-auto flex items-center justify-center text-base data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg md:px-3 md:py-1.5"
+                <TabsTrigger
+                  key={role.value}
+                  value={role.value}
+                  className="flex items-center justify-center text-sm md:text-base data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg py-2.5 rounded-md flex-1 whitespace-nowrap"
               >
-                <role.icon className="w-5 h-5 m-2 flex-shrink-0" />
-                <span className="hidden md:inline">{role.title}</span>
+                <role.icon className="w-4 h-4 md:w-5 md:h-5 mr-2 flex-shrink-0" />
+                <span>{role.title}</span>
               </TabsTrigger>
             ))}
           </TabsList>
@@ -106,24 +109,33 @@ export function RoleSelectionSection() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="p-6">
-                  <div className="p-5 bg-secondary/20 rounded-lg border border-secondary/50 mb-5">
-                      <h5 className="text-lg font-semibold text-secondary-foreground mb-2">Custom Tools & Insights</h5>
-                      <p className="text-sm text-muted-foreground italic">
-                        (Placeholder for role-specific calculators and detailed target-group information. This section will be tailored with data-driven tools and resources.)
-                      </p>
+                  <CardContent className="p-6 space-y-6">
+                    {/* Calculator/Display Section */}
+                    <Card className="bg-secondary/20 border-secondary/50">
+                      <CardHeader>
+                        <CardTitle className="text-lg font-semibold text-secondary-foreground">Custom Tools & Insights</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        {role.value === 'farmers' && <FarmerCalculator />}
+                        {role.value === 'industry' && <IndustryCalculator />}
+                        {role.value === 'investors' && <InvestorDisplay />}
+                      </CardContent>
+                    </Card>
+
+                    {/* Key Features Section */}
+                    <div>
+                      <h4 className="text-xl font-semibold text-foreground mb-4">Key Features & Benefits:</h4>
+                      <ul className="space-y-3 text-card-foreground/90 mb-6">
+                        {role.features.map((feature, index) => (
+                          <li key={index} className="flex items-start">
+                            <svg className="w-5 h-5 mr-3 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                            </svg>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <h4 className="text-xl font-semibold text-foreground mb-4">Key Features & Benefits:</h4>
-                    <ul className="space-y-3 text-card-foreground/90 mb-6">
-                      {role.features.map((feature, index) => (
-                        <li key={index} className="flex items-start">
-                          <svg className="w-5 h-5 mr-3 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                          </svg>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </CardContent>
                   <CardFooter className="p-6 bg-muted/20">
                     <Button asChild size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transform transition-transform hover:scale-105">
