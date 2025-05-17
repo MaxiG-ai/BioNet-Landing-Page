@@ -20,28 +20,28 @@ const flowSteps: FlowStep[] = [
     id: 'cattle',
     icon: Beef,
     title: 'Cattle Farming',
-    explanation: 'Promoting responsible livestock management and utilization of agricultural residues as feedstock.',
+    explanation: 'Uninterrupted farming and fertilizing like before. Just one step for biogas production inserted.',
     aiHint: "cattle farm sustainable"
   },
   {
     id: 'anaerobic-digestion',
     icon: Recycle, // Using Recycle for bioprocessing
     title: 'Anaerobic Digestion',
-    explanation: 'Converting organic matter and manure into biogas (methane and CO2) and digestate (fertilizer).',
+    explanation: 'Biogas production in underground AD using the manure from cowshed. Converting organic matter and manure into biogas (methane and CO2) and digestate (fertilizer).',
     aiHint: "anaerobic digester tank"
   },
   {
     id: 'biomethane-washing',
     icon: Filter, // Filter for purification/washing
     title: 'Biomethane Washing',
-    explanation: 'Purifying biogas by removing CO2 and other impurities to produce high-quality biomethane.',
+    explanation: 'Collection and Purification of biogas by removing CO2 and other impurities to produce high-quality biomethane at our facility. Injection of Biomethane into the national gas grid.',
     aiHint: "gas purification industrial"
   },
   {
     id: 'industry-use',
     icon: Factory,
     title: 'Industrial Use',
-    explanation: 'Utilizing biomethane as a renewable energy source for heat, power, or as a vehicle fuel, and digestate as biofertilizer.',
+    explanation: 'Utilizing biomethane as a renewable energy source for heat or power. Use of digestate as biofertilizer.',
     aiHint: "modern factory renewable energy"
   },
 ];

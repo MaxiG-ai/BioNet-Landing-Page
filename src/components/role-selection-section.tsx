@@ -17,8 +17,7 @@ interface Role {
   value: string; // for TabsTrigger value
   description: string;
   features: string[];
-  ctaLink: string;
-  ctaText: string;
+  tool: string;
 }
 
 const roles: Role[] = [
@@ -28,13 +27,11 @@ const roles: Role[] = [
     value: "farmers",
     description: "Cultivate sustainability and efficiency with our tailored bio-solutions.",
     features: [
-      "Access to advanced soil health analytics.",
-      "Tools for optimizing resource usage.",
-      "Marketplace for sustainable produce.",
-      "Guidance on regenerative agriculture practices."
+      "Access to expertise in biogas production.",
+      "Minimal effort required to integrate biogas into farming operations.",
+      "Build additional source of income."
     ],
-    ctaLink: "#contact",
-    ctaText: "Explore Farmer Solutions"
+    tool: "Earnings Calculator",
   },
   {
     icon: Factory,
@@ -42,13 +39,11 @@ const roles: Role[] = [
     value: "industry",
     description: "Integrate eco-friendly processes and materials into your operations.",
     features: [
-      "Bio-based material sourcing platform.",
-      "Carbon footprint reduction strategies.",
-      "Supply chain transparency tools.",
-      "Support for circular economy models."
+      "Independence from natural gas.",
+      "Reduced carbon footprint.",
+      "Long-term stable prices & supply."
     ],
-    ctaLink: "#contact",
-    ctaText: "Discover Industry Innovations"
+    tool: "Gas Price Projection",
   },
   {
     icon: TrendingUp,
@@ -56,13 +51,11 @@ const roles: Role[] = [
     value: "investors",
     description: "Invest in the future of sustainability and bio-innovation with high-growth potential.",
     features: [
-      "Curated portfolio of bio-tech startups.",
-      "Impact investment metrics and reporting.",
-      "Access to exclusive market research.",
-      "Networking opportunities with innovators."
+      "Simple and secure investment.",
+      "Support local & green technology.",
+      "Long-term commitment, long-term earnings."
     ],
-    ctaLink: "#contact",
-    ctaText: "Find Investment Opportunities"
+    tool: "Investment Information",
   }
 ];
 
@@ -70,7 +63,7 @@ export function RoleSelectionSection() {
   return (
     <section id="roles" className="py-16 md:py-24 bg-background mb-16 md:mb-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-6 md:mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Tailored Solutions for Every Partner
           </h2>
@@ -83,7 +76,7 @@ export function RoleSelectionSection() {
         </div>
 
         <Tabs defaultValue={roles[0].value} className="w-full max-w-3xl mx-auto">
-          <TabsList className="grid grid-cols-3 w-full shadow mb-6 bg-muted/50 rounded-md">
+          <TabsList className="grid grid-cols-3 w-full shadow mb-4 bg-muted/50 rounded-md">
               {roles.map((role) => (
                 <TabsTrigger
                   key={role.value}
@@ -113,7 +106,7 @@ export function RoleSelectionSection() {
                     {/* Calculator/Display Section */}
                     <Card className="bg-secondary/20 border-secondary/50">
                       <CardHeader>
-                        <CardTitle className="text-lg font-semibold text-secondary-foreground">Custom Tools & Insights</CardTitle>
+                        <CardTitle className="text-lg font-semibold text-secondary-foreground">{role.tool}</CardTitle>
                       </CardHeader>
                       <CardContent>
                         {role.value === 'farmers' && <FarmerCalculator />}
@@ -125,7 +118,7 @@ export function RoleSelectionSection() {
                     {/* Key Features Section */}
                     <div>
                       <h4 className="text-xl font-semibold text-foreground mb-4">Key Features & Benefits:</h4>
-                      <ul className="space-y-3 text-card-foreground/90 mb-6">
+                      <ul className="space-y-3 text-card-foreground/90 mb-2">
                         {role.features.map((feature, index) => (
                           <li key={index} className="flex items-start">
                             <svg className="w-5 h-5 mr-3 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -139,7 +132,7 @@ export function RoleSelectionSection() {
                   </CardContent>
                   <CardFooter className="p-6 bg-muted/20">
                     <Button asChild size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transform transition-transform hover:scale-105">
-                      <Link href={role.ctaLink}>{role.ctaText}</Link>
+                      <Link href='#intro'>Get in touch!</Link>
                     </Button>
                   </CardFooter>
                 </Card>

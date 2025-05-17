@@ -8,11 +8,11 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const bulletPoints = [
-  "These are",
-  "three or more",
-  "bullet points, which aim",
-  "to explain our work",
-  "to the visitor of this site."
+  "Assistance to farmers interested in building a second income source.",
+  "Expertise in Anaerobic Digester design and construction.",
+  "Aid for Anaerobic Digester maintenance.",
+  "Advanced BioGas processing and grid injection.",
+  "Network of industry customers."
 ];
 
 export function IntroSection() {

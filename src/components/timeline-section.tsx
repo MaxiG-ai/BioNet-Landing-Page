@@ -8,11 +8,11 @@ import type { NameType, ValueType } from 'recharts/types/component/DefaultToolti
 import React from 'react';
 
 const timelineData = [
-  { year: '2022', value: 1, image: 'https://picsum.photos/150/100?random=1', description: 'Launched BioNet platform, onboarded first 50 farmers.', aiHint: "startup launch team" },
-  { year: '2023', value: 1, image: 'https://picsum.photos/150/100?random=2', description: 'Expanded to 3 regions, partnered with 5 industrial clients.', aiHint: "business expansion map" },
-  { year: '2024', value: 1, image: 'https://picsum.photos/150/100?random=3', description: 'Secured Series A funding, initiated international pilot programs.', aiHint: "funding investment handshake" },
-  { year: '2025', value: 1, image: 'https://picsum.photos/150/100?random=4', description: 'Projected to achieve carbon neutrality for partnered farms.', aiHint: "carbon neutral certificate" },
-  { year: 'Future', value: 1, image: 'https://picsum.photos/150/100?random=5', description: 'Aiming for global leadership in bioeconomy solutions.', aiHint: "global network future" },
+  { year: '2025', value: 1, image: '/AD-astrid.jpeg', description: 'Launched BioNet platform, onboarded first farmers', aiHint: "startup launch team" },
+  { year: '2026', value: 1, image: '/gas-injection.jpg', description: 'Onboarded 25 farmes in Kildare, finishing injection point', aiHint: "business expansion map" },
+  { year: '2027', value: 1, image: '/kildare-map.jpeg', description: 'Working with 100+ farmers, selling to 3 industry clients.', aiHint: "funding investment handshake" },
+  { year: '2030', value: 1, image: '/pie-chart.jpg', description: 'Replacing 10% of Irelands gas supply with biogas', aiHint: "global network future" },
+  { year: 'Future', value: 1, image: '/worldwide.jpg', description: 'Expanding BioGas operations globally', aiHint: "global network future" },
 ]; // value is set to 1 for consistent Y positioning
 
 const CustomTooltip = ({ active, payload }: TooltipProps<ValueType, NameType>) => {

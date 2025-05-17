@@ -90,7 +90,7 @@ export function Navbar() {
                   </Link>
                 ))}
                 <Button asChild variant="default" className="mt-4 bg-primary hover:bg-primary/90">
-                  <Link href="#contact">Contact Us</Link>
+                  <Link href="#intro">Contact Us</Link>
                 </Button>
               </div>
             </SheetContent>

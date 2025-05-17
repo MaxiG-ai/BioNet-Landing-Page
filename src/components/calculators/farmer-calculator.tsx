@@ -8,14 +8,18 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 
 export function FarmerCalculator() {
-  const [cattleCount, setCattleCount] = useState<number>(0);
+  const DEFAULT_CATTLE_COUNT = 25;
+  const PRICE_PER_CATTLE = 150;
+  const DIGESTER_BONUS = 2500;
+
+  const [cattleCount, setCattleCount] = useState<number>(DEFAULT_CATTLE_COUNT);
   const [hasDigesterSpace, setHasDigesterSpace] = useState<boolean>(false);
   const [yearlyEarnings, setYearlyEarnings] = useState<number>(0);
 
   useEffect(() => {
-    const cattleEarnings = cattleCount * 100;
-    const digesterBonus = hasDigesterSpace ? 2500 : 0;
-    setYearlyEarnings(cattleEarnings + digesterBonus);
+    const cattleEarnings = cattleCount * PRICE_PER_CATTLE;
+    const digesterBonus = hasDigesterSpace ? DIGESTER_BONUS : 0;
+    setYearlyEarnings(cattleEarnings + digesterBonus); // Use the constants here
   }, [cattleCount, hasDigesterSpace]);
 
   const handleCattleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,7 +70,7 @@ export function FarmerCalculator() {
             €{yearlyEarnings.toLocaleString()}
           </p>
           <p className="text-xs text-muted-foreground">
-            Based on €100 per cow + €2500 digester bonus.
+            Based on €{PRICE_PER_CATTLE} per cow + €{DIGESTER_BONUS} digester bonus.
           </p>
         </CardContent>
       </Card>

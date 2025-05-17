@@ -11,7 +11,7 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-3">BioNet</h3>
             <p className="text-sm">
-              Innovating for a sustainable future. BioNet connects farmers, industry, and investors to source energy locally.
+              This website was created for the final documentation of a student project within the SUGAR network for Design Thinking. Check out the <a href="https://sugar-network.org/">SUGAR website</a> for more information!
             </p>
           </div>
           <div>

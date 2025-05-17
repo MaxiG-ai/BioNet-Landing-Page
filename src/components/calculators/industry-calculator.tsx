@@ -22,11 +22,11 @@ const chartConfig = {
 
 const YEARS_FORECAST = 20;
 const NATURAL_GAS_GROWTH_RATE = 0.07; // 7%
-const BIOGAS_INITIAL_PRICE = 0.35;
+const BIOGAS_INITIAL_PRICE = 0.40;
 const BIOGAS_GROWTH_RATE = 0.01; // 1%
 
 export function IndustryCalculator() {
-  const [currentGasPrice, setCurrentGasPrice] = useState<number>(0.30); // Default price €0.30/kWh
+  const [currentGasPrice, setCurrentGasPrice] = useState<number>(0.25); // Default price €0.30/kWh
   const [chartData, setChartData] = useState<any[]>([]);
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export function IndustryCalculator() {
           placeholder="e.g., 0.30"
         />
          <p className="text-xs text-muted-foreground pt-1">
-            Assumes a {NATURAL_GAS_GROWTH_RATE * 100}% annual increase for natural gas vs {BIOGAS_GROWTH_RATE * 100}% for BioNet Biogas.
+            Assumes a {(NATURAL_GAS_GROWTH_RATE * 100).toFixed(1)}% annual increase for natural gas vs {BIOGAS_GROWTH_RATE * 100}% for BioNet Biogas.
          </p>
       </div>
 
