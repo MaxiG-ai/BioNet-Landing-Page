@@ -1,9 +1,11 @@
+
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image'; // Added Image import
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, MountainSnow } from 'lucide-react';
+import { Menu } from 'lucide-react'; // Removed MountainSnow import
 import { useState, useEffect } from 'react';
 
 const navItems = [
@@ -35,8 +37,14 @@ export function Navbar() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
             <Link href="#intro" className="flex items-center gap-2" aria-label="BioNet Home">
-              <MountainSnow className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-bold text-primary">BioNet</span>
+              {/* Placeholder for server render to match client structure */}
+               <Image 
+                src="/bionet-logo.png" 
+                alt="BioNet Logo" 
+                width={120}  // Adjust width as needed
+                height={40} // Adjust height as needed
+                priority 
+              />
             </Link>
         </div>
       </header>
@@ -47,10 +55,15 @@ export function Navbar() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="#intro" className="flex items-center gap-2" aria-label="BioNet Home">
-          {/* Using MountainSnow as a generic logo, replace with actual logo if available */}
-          <MountainSnow className="h-8 w-8 text-primary" />
-          <span className="text-2xl font-bold text-primary">BioNet</span>
+        <Link href="#intro" className="flex items-center" aria-label="BioNet Home">
+          <Image 
+            src="/bionet-logo.png" 
+            alt="BioNet Logo" 
+            width={120} // Adjust width as needed
+            height={40} // Adjust height as needed
+            priority
+            className="h-10 w-auto" // Adjusted for better scaling
+          />
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
@@ -76,9 +89,15 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] bg-background">
               <div className="flex flex-col gap-6 p-6">
-                <Link href="#intro" className="flex items-center gap-2 mb-4" aria-label="BioNet Home">
-                  <MountainSnow className="h-8 w-8 text-primary" />
-                  <span className="text-xl font-bold text-primary">BioNet</span>
+                <Link href="#intro" className="flex items-center mb-4" aria-label="BioNet Home">
+                  <Image 
+                    src="/bionet-logo.png" 
+                    alt="BioNet Logo" 
+                    width={100} // Adjust width for mobile sheet
+                    height={33}  // Adjust height for mobile sheet
+                    priority
+                    className="h-8 w-auto" // Adjusted for better scaling in sheet
+                  />
                 </Link>
                 {navItems.map((item) => (
                   <Link
@@ -100,3 +119,4 @@ export function Navbar() {
     </header>
   );
 }
+
