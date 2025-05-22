@@ -31,33 +31,38 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Server-side rendering placeholder to avoid hydration mismatch
+  const renderLogoPlaceholder = () => (
+    <Link href="#intro" aria-label="BioNet Home">
+      <Image
+        src="/bionet-logo.png" // Correct path for public folder
+        alt="BioNet Logo"
+        width={120}
+        height={40}
+        priority
+      />
+    </Link>
+  );
+
   if (!isClient) {
-    // Render nothing or a placeholder on the server to avoid hydration mismatch
     return (
       <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-            <Link href="#intro" className="flex items-center gap-2" aria-label="BioNet Home">
-              {/* Placeholder for server render to match client structure */}
-               <Image
-                src="/bionet-logo.png"
-                alt="BioNet Logo"
-                width={120}
-                height={40}
-                priority
-              />
-            </Link>
+          {renderLogoPlaceholder()}
+          {/* Minimal structure to match client for hydration */}
+          <div className="hidden md:flex items-center gap-6"></div>
+          <div className="md:hidden"></div>
         </div>
       </header>
     );
   }
 
-
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="#intro" className="flex items-center" aria-label="BioNet Home">
+        <Link href="#intro" aria-label="BioNet Home">
           <Image
-            src="/bionet-logo.png"
+            src="/bionet-logo.png" // Correct path for public folder
             alt="BioNet Logo"
             width={120}
             height={40}
@@ -88,12 +93,12 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] bg-background">
               <div className="flex flex-col gap-6 p-6">
-                <Link href="#intro" className="flex items-center mb-4" aria-label="BioNet Home">
+                <Link href="#intro" aria-label="BioNet Home">
                   <Image
-                    src="/bionet-logo.png"
+                    src="/bionet-logo.png" // Correct path for public folder
                     alt="BioNet Logo"
                     width={100}
-                    height={33} 
+                    height={33}
                     priority
                   />
                 </Link>
