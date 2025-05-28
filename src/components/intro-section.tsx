@@ -8,11 +8,10 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const bulletPoints = [
-  "Assistance to farmers interested in building a second income source.",
-  "Expertise in Anaerobic Digester design and construction.",
-  "Aid for Anaerobic Digester maintenance.",
-  "Advanced BioGas processing and grid injection.",
-  "Network of industry customers."
+  "Introducing slurry in biogas production reduces additional efforts and changes to your processes. Make added value easily.",
+  "Scale effects alter economic viability. Everybody can profit.",
+  "Technical maintenance is done by us. We support you in every aspect.",
+  "Learn more about your benefits using our calculator below!",
 ];
 
 export function IntroSection() {
@@ -37,7 +36,7 @@ export function IntroSection() {
           We at <span className="text-primary">BioNet</span> enable energy transformation
         </h1>
         <p className="text-lg md:text-xl mb-8 drop-shadow-md">
-          by providing locally sourced irish biogas to industry for a greener tomorrow.
+        Join Bionet and start producing biogas together with other farmers in Ireland.
         </p>
         <div className='flex flex-wrap justify-center gap-4 mb-8 md:flex-nowrap'>
           <div className="mb-10 space-y-3 text-left max-w-full md:max-w-md mx-auto bg-black/30 backdrop-blur-sm p-6 rounded-lg shadow-xl w-full md:w-1/2">

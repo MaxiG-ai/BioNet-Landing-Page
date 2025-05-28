@@ -34,13 +34,15 @@ export function Navbar() {
   // Server-side rendering placeholder to avoid hydration mismatch
   const renderLogoPlaceholder = () => (
     <Link href="#intro" aria-label="BioNet Home">
-      <Image
-        src="/bionet-logo.png" // Correct path for public folder
-        alt="BioNet Logo"
-        width={120}
-        height={40}
-        priority
-      />
+      <div>
+        <Image
+          src={'/bionet-logo.svg'}
+          alt="My Company Logo"
+          width={150} // Required for next/image
+          height={75} // Required for next/image
+          layout="fixed" // Or "fixed", "fill", "intrinsic"
+        />
+      </div>
     </Link>
   );
 
@@ -62,7 +64,7 @@ export function Navbar() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="#intro" aria-label="BioNet Home">
           <Image
-            src="/bionet-logo.png" // Correct path for public folder
+            src={"/bionet-logo.svg"} // Correct path for public folder
             alt="BioNet Logo"
             width={120}
             height={40}
