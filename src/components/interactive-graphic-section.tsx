@@ -1,15 +1,17 @@
 
 "use client";
 
-import React from 'react'; // Added import
+import React from 'react';
+import Image from 'next/image'; // Added import for next/image
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Network, Beef, Recycle, Filter, Factory, ArrowRight, ArrowDown } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
+import { Network, ArrowRight, ArrowDown } from 'lucide-react';
+// LucideIcon type is no longer needed for flowSteps
+// import type { LucideIcon } from 'lucide-react';
 
 interface FlowStep {
   id: string;
-  icon: LucideIcon;
+  iconSrc: string; // Changed from LucideIcon to string path for custom image
   title: string;
   explanation: string;
   aiHint: string;
@@ -18,28 +20,28 @@ interface FlowStep {
 const flowSteps: FlowStep[] = [
   {
     id: 'cattle',
-    icon: Beef,
+    iconSrc: '/Farmer.png', // Custom image path
     title: 'Cattle Farming',
     explanation: 'Uninterrupted farming and fertilizing like before. Just one step for biogas production inserted.',
     aiHint: "cattle farm sustainable"
   },
   {
     id: 'anaerobic-digestion',
-    icon: Recycle, // Using Recycle for bioprocessing
+    iconSrc: '/biogas transformer.png', // Custom image path
     title: 'Anaerobic Digestion',
     explanation: 'Biogas production in underground AD using the manure from cowshed. Converting organic matter and manure into biogas (methane and CO2) and digestate (fertilizer).',
     aiHint: "anaerobic digester tank"
   },
   {
     id: 'biomethane-washing',
-    icon: Filter, // Filter for purification/washing
+    iconSrc: '/bio methane transformer.png', // Custom image path
     title: 'Biomethane Washing',
     explanation: 'Collection and Purification of biogas by removing CO2 and other impurities to produce high-quality biomethane at our facility. Injection of Biomethane into the national gas grid.',
     aiHint: "gas purification industrial"
   },
   {
     id: 'industry-use',
-    icon: Factory,
+    iconSrc: '/bio methane user.png', // Custom image path
     title: 'Industrial Use',
     explanation: 'Utilizing biomethane as a renewable energy source for heat or power. Use of digestate as biofertilizer.',
     aiHint: "modern factory renewable energy"
@@ -77,9 +79,15 @@ export function InteractiveGraphicSection() {
                   <TooltipTrigger asChild>
                     <Card className="w-full md:w-64 hover:shadow-xl transition-shadow cursor-pointer bg-card">
                       <CardHeader className="items-center p-4">
-                        <div className="p-3 bg-primary/10 rounded-full mb-2">
-                          <step.icon className="w-10 h-10 text-primary" />
-                        </div>
+                        {/* Removed the green circle div, directly use Image */}
+                        <Image 
+                          src={step.iconSrc} 
+                          alt={step.title} 
+                          width={60}  // Adjusted size for custom icons
+                          height={60} // Adjusted size for custom icons
+                          className="mb-2" 
+                          data-ai-hint={step.aiHint} // Keep ai-hint for consistency if needed
+                        />
                         <CardTitle className="text-lg text-center text-card-foreground">{step.title}</CardTitle>
                       </CardHeader>
                     </Card>
@@ -102,4 +110,3 @@ export function InteractiveGraphicSection() {
     </section>
   );
 }
-
