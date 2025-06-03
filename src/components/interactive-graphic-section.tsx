@@ -27,21 +27,21 @@ const flowSteps: FlowStep[] = [
   },
   {
     id: 'anaerobic-digestion',
-    iconSrc: '/biogas transformer.png', // Custom image path
+    iconSrc: '/biogas_transformer.png', // Custom image path
     title: 'Anaerobic Digestion',
     explanation: 'Biogas production in underground AD using the manure from cowshed. Converting organic matter and manure into biogas (methane and CO2) and digestate (fertilizer).',
     aiHint: "anaerobic digester tank"
   },
   {
     id: 'biomethane-washing',
-    iconSrc: '/bio methane transformer.png', // Custom image path
+    iconSrc: '/bio_methane_transformer.png', // Custom image path
     title: 'Biomethane Washing',
     explanation: 'Collection and Purification of biogas by removing CO2 and other impurities to produce high-quality biomethane at our facility. Injection of Biomethane into the national gas grid.',
     aiHint: "gas purification industrial"
   },
   {
     id: 'industry-use',
-    iconSrc: '/bio methane user.png', // Custom image path
+    iconSrc: '/bio_methane_user.png', // Custom image path
     title: 'Industrial Use',
     explanation: 'Utilizing biomethane as a renewable energy source for heat or power. Use of digestate as biofertilizer.',
     aiHint: "modern factory renewable energy"
@@ -83,8 +83,8 @@ export function InteractiveGraphicSection() {
                         <Image 
                           src={step.iconSrc} 
                           alt={step.title} 
-                          width={60}  // Adjusted size for custom icons
-                          height={60} // Adjusted size for custom icons
+                          width={100}  // Adjusted size for custom icons
+                          height={100} // Adjusted size for custom icons
                           className="mb-2" 
                           data-ai-hint={step.aiHint} // Keep ai-hint for consistency if needed
                         />
