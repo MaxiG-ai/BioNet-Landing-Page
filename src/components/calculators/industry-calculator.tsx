@@ -22,11 +22,11 @@ const chartConfig = {
 
 const YEARS_FORECAST = 20;
 const NATURAL_GAS_GROWTH_RATE = 0.07; // 7%
-const BIOGAS_INITIAL_PRICE = 0.40;
+const BIOGAS_INITIAL_PRICE = 0.25;
 const BIOGAS_GROWTH_RATE = 0.01; // 1%
 
 export function IndustryCalculator() {
-  const [currentGasPrice, setCurrentGasPrice] = useState<number>(0.25); // Default price €0.30/kWh
+  const [currentGasPrice, setCurrentGasPrice] = useState<number>(0.16); // Default price €0.16/kWh
   const [chartData, setChartData] = useState<any[]>([]);
 
   useEffect(() => {

@@ -9,8 +9,8 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 
 export function FarmerCalculator() {
   const DEFAULT_CATTLE_COUNT = 25;
-  const PRICE_PER_CATTLE = 150;
-  const DIGESTER_BONUS = 2500;
+  const PRICE_PER_CATTLE = 277;
+  const DIGESTER_BONUS = 1000;
 
   const [cattleCount, setCattleCount] = useState<number>(DEFAULT_CATTLE_COUNT);
   const [hasDigesterSpace, setHasDigesterSpace] = useState<boolean>(false);
