@@ -8,7 +8,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 
 export function FarmerCalculator() {
-  const DEFAULT_CATTLE_COUNT = 25;
+  const DEFAULT_CATTLE_COUNT = 90;
   const PRICE_PER_CATTLE = 277;
   const DIGESTER_BONUS = 1000;
 

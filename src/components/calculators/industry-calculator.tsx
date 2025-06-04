@@ -22,7 +22,7 @@ const chartConfig = {
 
 const YEARS_FORECAST = 20;
 const NATURAL_GAS_GROWTH_RATE = 0.07; // 7%
-const BIOGAS_INITIAL_PRICE = 0.25;
+const BIOGAS_INITIAL_PRICE = 0.35;
 const BIOGAS_GROWTH_RATE = 0.01; // 1%
 
 export function IndustryCalculator() {
